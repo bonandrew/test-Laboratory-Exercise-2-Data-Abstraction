@@ -1,0 +1,29 @@
+  JLabel lblRemoveElement = new JLabel("REMOVE ELEMENT\r\n");
+       lblRemoveElement.setForeground(new Color(79, 117, 94));
+       lblRemoveElement.setFont(new Font("Franklin Gothic Book", Font.BOLD, 15));
+       lblRemoveElement.setBounds(41, 365, 167, 26);
+       contentPane.add(lblRemoveElement);
+       removeIndex = new JTextField();
+       removeIndex.setColumns(10);
+       removeIndex.setBounds(41, 402, 167, 26);
+       contentPane.add(removeIndex);
+      
+       JButton btnRemoveAnElement = new JButton("REMOVE");
+       btnRemoveAnElement.setBackground(new Color(245, 251, 196));
+       btnRemoveAnElement.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               int index = Integer.parseInt(removeIndex.getText());
+               removeElement(index);
+               updateTable();
+           }
+       });
+      
+       btnRemoveAnElement.setBounds(41, 439, 167, 40);
+       contentPane.add(btnRemoveAnElement);
+
+  // Removes the element at the specified index, shifting elements as needed
+   private void removeElement(int index) {
+       if (index >= 0 && index < libraryList.size()) {
+           libraryList.remove(index);
+       }
+   }
